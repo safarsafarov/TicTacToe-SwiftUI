@@ -27,7 +27,7 @@ struct ContentView_Previews: PreviewProvider {
 struct Home : View {
     // Moves
     @State var moves : [String] = Array(repeating: "", count: 9)
-    @State var isPlaying = false
+    @State var isPlaying = true
     var body: some View {
         VStack {
             
@@ -44,6 +44,12 @@ struct Home : View {
                     }
                     .frame(width: getWidth(), height: getWidth())
                     .cornerRadius(25)
+                    .onTapGesture(perform: {
+                        withAnimation(Animation.easeIn(duration: 0.5)){
+                            moves[index] = isPlaying ? "X" : "0"
+                            isPlaying.toggle()
+                        }
+                    })
                 }
             }
             .padding(15)
