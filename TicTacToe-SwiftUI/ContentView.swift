@@ -46,8 +46,11 @@ struct Home : View {
                     .cornerRadius(25)
                     .onTapGesture(perform: {
                         withAnimation(Animation.easeIn(duration: 0.5)){
-                            moves[index] = isPlaying ? "X" : "0"
-                            isPlaying.toggle()
+                            if moves[index] == ""{
+                                moves[index] = isPlaying ? "X" : "0"
+                                //Updating player... 
+                                isPlaying.toggle()
+                            }
                         }
                     })
                 }
