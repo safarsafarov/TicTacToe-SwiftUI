@@ -35,20 +35,31 @@ struct Home : View {
                 
                 ForEach(0..<9,id: \.self){index in
                     ZStack {
+                        Color.blue
+                        
                         Color.white
+                            .opacity(moves[index] == "" ? 1 : 0)
                         
                         Text(moves[index])
                             .font(.system(size: 55))
                             .fontWeight(.heavy)
-                            .foregroundColor(.black)
+                            .foregroundColor(.white )
+                            .opacity(moves[index] == "" ? 1 : 0)
                     }
                     .frame(width: getWidth(), height: getWidth())
                     .cornerRadius(25)
+                    .rotation3DEffect(
+                        .init(degrees: moves[index] != "" ? 180 : 0),
+                        axis: /*@START_MENU_TOKEN@*/(x: 0.0, y: 1.0, z: 0.0)/*@END_MENU_TOKEN@*/,
+                        anchor: .center,
+                        anchorZ: 0.0
+                        perspective: 1.0
+                    
                     .onTapGesture(perform: {
                         withAnimation(Animation.easeIn(duration: 0.5)){
                             if moves[index] == ""{
                                 moves[index] = isPlaying ? "X" : "0"
-                                //Updating player... 
+                                //Updating player...
                                 isPlaying.toggle()
                             }
                         }
