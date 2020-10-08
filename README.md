@@ -1,8 +1,8 @@
 # Tic-Tac-Toe Game on SwiftUI.
 
-- [ ] Custom Card Flip Animations Using SwiftUI.
-- [ ] SwiftUI 2.0 Grids.
-- [ ] SwiftUI LazyGrids.
-- [ ] SwiftUI GridView.
-- [ ] SwiftUI CollectionView.
+- [x] Custom Card Flip Animations Using SwiftUI.
+- [x] SwiftUI 2.0 Grids.
+- [x] SwiftUI LazyGrids.
+- [x] SwiftUI GridView.
+- [x] SwiftUI CollectionView.
  
