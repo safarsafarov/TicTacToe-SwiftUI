@@ -102,9 +102,19 @@ struct Home : View {
             gameOver.toggle()
         }
         
-        if checkMoves(player: "0"){
+        else if checkMoves(player: "0"){
             msg = "Player 0 Won !!!"
             gameOver.toggle()
+        }
+        else {
+            // checking no moves....
+            let status = moves.contains { (value) -> Bool in
+                return value == ""
+            }
+            if !status{
+                msg = "Game over Tied!!!"
+                gameOver.toggle()
+            }
         }
     }
     
@@ -122,6 +132,14 @@ struct Home : View {
             if moves[i] == player && moves[i + 3] == player && moves[i + 6] == player {
                 return true
             }
+        }
+        
+        if moves[0] == player && moves[4] == player && moves[8] == player{
+            return true
+        }
+        
+        if moves[2] == player && moves[4] == player && moves[6] == player{
+            return true
         }
         return false
     }
